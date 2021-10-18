@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ProductFlavorsTest</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="save">Save</string>
+</resources>
