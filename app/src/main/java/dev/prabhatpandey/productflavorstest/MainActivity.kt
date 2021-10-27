@@ -5,8 +5,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import dev.prabhatpandey.productflavorstest.databinding.ActivityMainBinding
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         database
             .collection("names")
-            .orderBy("title")
+            .orderBy("time", Query.Direction.DESCENDING)
             .addSnapshotListener { value, error ->
                 if(error == null && value != null) {
                     val list = mutableListOf<Name>()
@@ -62,7 +65,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun saveName(nameTitle: String) {
         binding.progressBar.visibility = View.VISIBLE
-        val name = Name(nameTitle)
+        val name = Name(nameTitle, Date())
 
         database
             .collection("names")

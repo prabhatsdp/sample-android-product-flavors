@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import dev.prabhatpandey.productflavorstest.utils.Helpers
 
 /**
  * Created By Prabhat Pandey for ProductFlavorsTest project
@@ -18,13 +19,15 @@ class NamesAdapter(nameList: List<Name>) : RecyclerView.Adapter<NamesAdapter.Nam
 
     class NameViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        private val nameTv : TextView = itemView.findViewById(R.id.name)
-        private val numberTv : TextView = itemView.findViewById(R.id.number)
+        private val nameTv: TextView = itemView.findViewById(R.id.name)
+        private val numberTv: TextView = itemView.findViewById(R.id.number)
+        private val timeTv: TextView = itemView.findViewById(R.id.time)
 
         fun bind(position: Int, name: Name) {
             nameTv.text = name.title
-            val number = (position + 1).toString()
+            val number = String.format("%02d", position + 1)
             numberTv.text = number
+            timeTv.text = Helpers.dateToStringLastUpdateTime(name.time)
         }
     }
 
