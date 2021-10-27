@@ -1,46 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/itemRoot"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="0dp"
+    android:paddingHorizontal="32dp"
+    android:paddingVertical="16dp"
+    android:clickable="true"
+    android:focusable="true">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginVertical="4dp"
-        android:layout_marginHorizontal="20dp"
-        app:cardBackgroundColor="@color/prod_item_bg"
-        app:cardCornerRadius="8dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/gray"
+            android:textSize="14sp"
+            tools:text="01" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:contentDescription="@string/user_image"
+            android:src="@drawable/ic_user" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="16dp">
-            <TextView
-                android:id="@+id/number"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:text="01"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
+            android:layout_weight="10"
+            android:orientation="vertical"
+            android:layout_marginStart="20dp">
+
             <TextView
                 android:id="@+id/name"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="10"
+                android:textColor="@color/black"
+                android:textSize="18sp"
                 tools:text="Prabhat"
-                android:textSize="16sp"
-                android:textColor="@color/black"/>
+                android:textStyle="bold"/>
 
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:textSize="12sp"
+                tools:text="27 Jan, 2021 at 12:34 PM"
+                android:layout_marginTop="8dp"/>
         </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

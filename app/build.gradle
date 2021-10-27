@@ -44,6 +44,18 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    sourceSets {
+        prod {
+            java {
+                srcDirs 'src\\prod\\java'
+            }
+        }
+        dev {
+            java {
+                srcDirs 'src\\dev\\java'
+            }
+        }
+    }
 }
 
 dependencies {
